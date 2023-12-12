@@ -1,0 +1,33 @@
+@import "../abstracts/variables";
+
+@keyframes show {
+  from {
+    opacity: 1;
+    height: $headerHeight;
+  }
+  to {
+    opacity: 0.8;
+    height: calc($headerHeight - 32px);
+  }
+}
+
+header {
+  height: $headerHeight;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  animation: show linear both;
+  animation-timeline: scroll();
+
+  nav {
+    ul {
+      li {
+        a:any-link,
+        a {
+          color: #eeeeee;
+        }
+      }
+    }
+  }
+}

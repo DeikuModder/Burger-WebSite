@@ -1,0 +1,36 @@
+@import "../abstracts/mixins";
+
+.welcomeImages {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.active .welcomeImages {
+  opacity: 1;
+}
+
+#menuSneakPeek {
+  ul {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  a,
+  a:any-link {
+    color: #eee;
+  }
+}
+
+.burgerCard {
+  width: 350px;
+  height: 400px;
+  background-color: #eee;
+}
+
+.downwardContainer {
+  @include flexColumn(flex-start);
+}
