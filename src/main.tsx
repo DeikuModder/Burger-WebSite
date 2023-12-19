@@ -5,7 +5,7 @@ import "./styles/base/_resets.scss";
 import "./styles/base/_base.scss";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/Burger-WebSite">
     <App />
   </BrowserRouter>
 );

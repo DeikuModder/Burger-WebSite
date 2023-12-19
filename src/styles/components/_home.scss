@@ -1,15 +1,27 @@
 @import "../abstracts/mixins";
 
-.welcomeImages {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+h1 {
+  z-index: 1500;
+  font-size: 5rem;
+  color: #ffe81b;
+
+  span:first-of-type {
+    color: #4bcf31;
+  }
+  span:nth-of-type(2) {
+    color: rgb(62, 211, 199);
+  }
+  span:nth-of-type(3) {
+    color: #d63518;
+  }
 }
 
-.active .welcomeImages {
-  opacity: 1;
+#welcomeSection {
+  @include flexColumn(center, center, row);
+}
+
+.logoContainer {
+  border-radius: 100%;
 }
 
 #menuSneakPeek {
@@ -28,9 +40,20 @@
 .burgerCard {
   width: 350px;
   height: 400px;
+  border-radius: 16px;
   background-color: #eee;
 }
 
 .downwardContainer {
   @include flexColumn(flex-start);
+}
+
+.promoImagesContainer {
+  width: 100%;
+  @include flexColumn(center, center, row);
+  gap: 4rem;
+}
+
+.promoImages {
+  width: 35%;
 }

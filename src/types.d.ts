@@ -7,3 +7,10 @@ export interface BurgerInterface {
     price: number | null | undefined;
   };
 }
+
+export interface BurgerCard {
+  name: string;
+  price: number;
+  ingredients: string[];
+  image: string;
+}

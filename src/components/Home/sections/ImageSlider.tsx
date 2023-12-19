@@ -17,26 +17,14 @@ const WelcomeImageSlider = () => {
   return (
     <>
       <div
-        className={currentIndex === 0 ? "active" : ""}
-        style={{ width: "40%", position: "absolute" }}
+        className={`imageSliderContainer ${currentIndex === 0 ? "active" : ""}`}
       >
-        <img
-          src={images[0]}
-          alt="Slider Image"
-          className="welcomeImages"
-          loading="lazy"
-        />
+        <img src={images[0]} alt="Slider Image" className="welcomeImages" />
       </div>
       <div
-        className={currentIndex === 1 ? "active" : ""}
-        style={{ width: "40%", position: "absolute" }}
+        className={`imageSliderContainer ${currentIndex === 0 ? "active" : ""}`}
       >
-        <img
-          src={images[1]}
-          alt="Slider Image"
-          className="welcomeImages"
-          loading="lazy"
-        />
+        <img src={images[1]} alt="Slider Image" className="welcomeImages" />
       </div>
     </>
   );

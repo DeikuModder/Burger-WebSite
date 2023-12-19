@@ -1,0 +1,6 @@
+@import "../abstracts/mixins";
+
+#contact {
+  @include flexColumn(center, center, row);
+  gap: 4rem;
+}

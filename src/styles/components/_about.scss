@@ -1,0 +1,7 @@
+@import "../abstracts/mixins";
+
+#about {
+  height: fit-content;
+  @include flexColumn(center, center, row);
+  gap: 4rem;
+}

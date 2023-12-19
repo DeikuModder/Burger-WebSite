@@ -8,7 +8,8 @@ button {
 }
 
 body {
-  background: #ec6f09 url("../../assets/burgers-wallpaper.webp") repeat-y;
+  // background: #ec6f09 url("../../assets/burgers-wallpaper.webp") repeat-y;
+  background: #ec6f09;
 }
 
 section {
@@ -20,5 +21,5 @@ section {
 
 section:first-of-type {
   height: calc(100vh - $headerHeight);
-  padding-top: calc($headerHeight + 120px);
+  margin-top: $headerHeight;
 }

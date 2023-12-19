@@ -1,4 +1,5 @@
 @import "../abstracts/variables";
+@import "../abstracts/mixins";
 
 @keyframes show {
   from {
@@ -23,6 +24,10 @@ header {
   nav {
     ul {
       li {
+        color: #eeeeee;
+        @include flexColumn(center, center, row);
+        gap: 4px;
+
         a:any-link,
         a {
           color: #eeeeee;

@@ -1,0 +1,14 @@
+footer {
+  background-color: #1d1d1d;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  color: #eee;
+  display: grid;
+  place-content: center;
+
+  p {
+    font-style: italic;
+    font-weight: 300;
+  }
+}

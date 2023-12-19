@@ -3,6 +3,9 @@ import Home from "@/components/Home/Home";
 import Menu from "@/components/Menu/Menu";
 import Header from "@/components/Header/Header";
 import DataProvider from "./providers/DataProvider/DataProvider";
+import Footer from "@/components/Footer/Footer";
+import About from "./components/About/About";
+import Contact from "./components/Contact/Contact";
 
 function App() {
   return (
@@ -11,7 +14,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/about-us" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer />
     </DataProvider>
   );
 }

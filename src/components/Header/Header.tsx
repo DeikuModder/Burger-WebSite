@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "@/assets/Logo-hamburguesa-oficia-variacionl.webp";
 import "@/styles/components/_header.scss";
+import {
+  faBookOpen,
+  faExclamationCircle,
+} from "@fortawesome/free-solid-svg-icons";
+import { faHomeAlt } from "@fortawesome/free-solid-svg-icons/faHomeAlt";
+import { faPhone } from "@fortawesome/free-solid-svg-icons/faPhone";
 
 const Header = () => {
   return (
@@ -10,6 +17,7 @@ const Header = () => {
           width: "100%",
           padding: 8,
           position: "fixed",
+          top: 0,
           backgroundColor: "#252422",
           zIndex: 100,
         }}
@@ -20,13 +28,20 @@ const Header = () => {
         <nav style={{ width: "50%" }}>
           <ul style={{ fontSize: "1.4rem", display: "flex", gap: 32 }}>
             <li>
+              <FontAwesomeIcon icon={faHomeAlt} />
               <Link to={"/"}>Home</Link>
             </li>
             <li>
+              <FontAwesomeIcon icon={faBookOpen} />
               <Link to={"/menu"}>Menu</Link>
             </li>
             <li>
-              <Link to={"/promotions"}>Promos</Link>
+              <FontAwesomeIcon icon={faExclamationCircle} />
+              <Link to={"/about-us"}>About</Link>
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faPhone} />
+              <Link to={"/contact"}>Contact</Link>
             </li>
           </ul>
         </nav>
