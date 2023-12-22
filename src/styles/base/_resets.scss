@@ -11,3 +11,16 @@ a {
 li {
   list-style: none;
 }
+
+input,
+button {
+  outline: none;
+  border: none;
+  border-radius: 32px;
+  padding: 12px;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}

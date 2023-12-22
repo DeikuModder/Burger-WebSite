@@ -5,6 +5,7 @@ import "@/styles/components/_header.scss";
 import {
   faBookOpen,
   faExclamationCircle,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { faHomeAlt } from "@fortawesome/free-solid-svg-icons/faHomeAlt";
 import { faPhone } from "@fortawesome/free-solid-svg-icons/faPhone";
@@ -42,6 +43,11 @@ const Header = () => {
             <li>
               <FontAwesomeIcon icon={faPhone} />
               <Link to={"/contact"}>Contact</Link>
+            </li>
+            <li>
+              <Link to={"/login"}>
+                <FontAwesomeIcon icon={faUser} />
+              </Link>
             </li>
           </ul>
         </nav>

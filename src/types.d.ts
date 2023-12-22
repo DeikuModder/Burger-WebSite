@@ -1,4 +1,5 @@
 export interface BurgerInterface {
+  _id?: string;
   name: string;
   ingredients: string[];
   price: number;
@@ -14,3 +15,11 @@ export interface BurgerCard {
   ingredients: string[];
   image: string;
 }
+
+export interface Logeduser {
+  username: string;
+  email: string;
+  token: string;
+}
+
+export type UserPublicData = Omit<Logeduser, "token">;
