@@ -42,14 +42,14 @@ const About = () => {
           soon!
         </p>
       </div>
-      <div style={{ width: "40%" }}>
+      <figure style={{ width: "40%", shapeOutside: "circle(50%)" }}>
         <img
           src={RestaurantImage}
           style={{ width: "100%", borderRadius: "100%" }}
           loading="lazy"
           alt="Reastaurant-Photo"
         />
-      </div>
+      </figure>
     </section>
   );
 };

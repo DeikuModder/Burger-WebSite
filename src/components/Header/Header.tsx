@@ -9,8 +9,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faHomeAlt } from "@fortawesome/free-solid-svg-icons/faHomeAlt";
 import { faPhone } from "@fortawesome/free-solid-svg-icons/faPhone";
+import useBurgerApi from "@/hooks/useBurgerApi";
 
 const Header = () => {
+  const { userData } = useBurgerApi();
+
   return (
     <>
       <header
@@ -45,7 +48,7 @@ const Header = () => {
               <Link to={"/contact"}>Contact</Link>
             </li>
             <li>
-              <Link to={"/login"}>
+              <Link to={userData.username ? "/dashboard" : "/login"}>
                 <FontAwesomeIcon icon={faUser} />
               </Link>
             </li>

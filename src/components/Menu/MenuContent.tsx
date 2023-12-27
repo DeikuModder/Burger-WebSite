@@ -1,7 +1,8 @@
 import useBurgerApi from "@/hooks/useBurgerApi";
 import BurgerImage from "@/assets/grill-ride-burger.webp";
-import DoubleGrillImage from "@/assets/double-grill.webp";
+import VeggieBurger from "@/assets/double-grill.webp";
 import ChickenBurgerImage from "@/assets/chicken-burger.webp";
+import DoubleGrillImage from "@/assets/Grill plantilla.png";
 import BurgerCard from "./BurgerCard";
 
 const MenuContent = () => {
@@ -11,6 +12,7 @@ const MenuContent = () => {
     BurgerImage,
     DoubleGrillImage,
     ChickenBurgerImage,
+    VeggieBurger,
   ];
   return (
     <ul>

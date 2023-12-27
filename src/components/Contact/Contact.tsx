@@ -6,13 +6,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Contact = () => {
   return (
     <section id="contact">
-      <div style={{ width: "40%" }}>
+      <figure style={{ width: "40%", shapeOutside: "circle(50%)" }}>
         <img
           src={GrillRide}
           loading="lazy"
           style={{ width: "100%", borderRadius: "100%" }}
         />
-      </div>
+      </figure>
       <div
         style={{
           width: "40%",

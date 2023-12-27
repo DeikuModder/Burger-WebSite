@@ -10,7 +10,7 @@ const EditBurger = () => {
   const [newIngredients, setNewIngredients] = useState("");
   const { userData } = useBurgerApi();
 
-  const ChangedBurgerObj: BurgerInterface = {
+  const ChangedBurgerObj: Partial<BurgerInterface> = {
     name: newName,
     price: parseFloat(newPrice),
     ingredients: newIngredients
@@ -18,22 +18,34 @@ const EditBurger = () => {
       .map((ingredient) => ingredient.trim()),
   };
 
+  const checkInputEmpty = () => {
+    newName === "" && delete ChangedBurgerObj.name;
+    newPrice === "" && delete ChangedBurgerObj.price;
+    newIngredients === "" && delete ChangedBurgerObj.ingredients;
+  };
+
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    fetch(`https://burger-app-api-seven.vercel.app/api/v1/burgers/${id}`, {
-      method: "PUT",
-      headers: { Authorization: `Bearer ${userData.token}` },
-      body: JSON.stringify(ChangedBurgerObj),
-    })
-      .then((res) => {
-        if (res.ok) {
-          setMessage("Succesfully edited burger");
-        } else {
-          setMessage("Couldn't edit burger");
-        }
+    checkInputEmpty();
+
+    if (!Object.keys(ChangedBurgerObj).length) {
+      setMessage("Please fill out at least one field.");
+    } else {
+      fetch(`https://burger-app-api-seven.vercel.app/api/v1/burgers/${id}`, {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${userData.token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(ChangedBurgerObj),
       })
-      .catch((err) => setMessage(`An error has occurred ${err}`));
+        .then(async (res) => {
+          if (res.ok) setMessage("Successfully Edited!");
+          else setMessage(await res.json());
+        })
+        .catch((err) => setMessage(`${err}`));
+    }
   };
 
   return (

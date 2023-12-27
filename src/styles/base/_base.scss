@@ -2,6 +2,12 @@
 @import "../abstracts/mixins";
 @import "../abstracts/variables";
 
+@media (max-witdh: 700px) {
+  body {
+    display: none;
+  }
+}
+
 html,
 button {
   font-family: "Poppins", sans-serif;
