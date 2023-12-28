@@ -1,1 +1,0 @@
-import{j as e}from"./index-B__4TM_s.js";const t=({onClose:s,children:n})=>e.jsx("div",{className:"modalScreen",children:e.jsxs("div",{className:"modalContent",children:[e.jsx("button",{onClick:s,children:"Close"}),n]})});export{t as default};
