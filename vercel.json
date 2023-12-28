@@ -1,6 +1,6 @@
 {
   "name": "burger-website",
   "version": 2,
-  "builds": [{ "src": "dist/index.html", "use": "@vercel/vite" }],
+  "builds": [{ "src": "dist/index.html", "use": "@vercel/node" }],
   "routes": [{ "src": "dist/(.*)", "dest": "index.html" }]
 }
