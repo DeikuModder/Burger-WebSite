@@ -2,8 +2,8 @@
 @import "../abstracts/mixins";
 @import "../abstracts/variables";
 
-@media (max-witdh: 700px) {
-  body {
+@media (max-width: 800px) {
+  * {
     display: none;
   }
 }

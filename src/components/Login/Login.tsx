@@ -11,32 +11,34 @@ const Login = () => {
   const { setUserData, isAuthenticated, setIsAuthenticated } = useBurgerApi();
   const navigate = useNavigate();
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
-    fetch("https://burger-app-api-seven.vercel.app/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        username: username,
-        password: password,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.error) {
-          setErrorMessage(data.error);
-        } else {
-          setUserData(data as Logeduser);
-          window.localStorage.setItem("LoggedUser", JSON.stringify(data));
-          setIsAuthenticated(true);
+    try {
+      const response = await fetch(
+        "https://burger-app-api-seven.vercel.app/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: username,
+            password: password,
+          }),
         }
-      })
-      .catch((error) => alert(`Error: ${error}`))
-      .finally(() => {
-        setUsername("");
-        setPassword("");
-      });
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setUserData(data as Logeduser);
+        window.localStorage.setItem("LoggedUser", JSON.stringify(data));
+        setIsAuthenticated(true);
+      } else {
+        setErrorMessage(data);
+      }
+    } catch (error) {
+      alert(`Error: ${error}`);
+    }
   };
 
   useEffect(() => {
@@ -72,7 +74,17 @@ const Login = () => {
         </form>
 
         {errorMessage && (
-          <p style={{ fontSize: 24, color: "red" }}>{errorMessage}</p>
+          <p
+            style={{
+              fontSize: 24,
+              color: "red",
+              backgroundColor: "#131313be",
+              padding: 8,
+              borderRadius: 32,
+            }}
+          >
+            {errorMessage}
+          </p>
         )}
       </section>
     </>
