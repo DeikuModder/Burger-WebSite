@@ -1,4 +1,4 @@
 {
   "trailingSlash": false,
-  "rewrites": [{ "source": "/:path*", "destination": "/dist/index.html" }]
+  "rewrites": [{ "source": "/:path*", "destination": "/index.html" }]
 }
