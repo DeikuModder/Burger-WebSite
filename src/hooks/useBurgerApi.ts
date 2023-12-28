@@ -9,6 +9,7 @@ const useBurgerApi = () => {
     isAuthenticated,
     setIsAuthenticated,
     handleLogout,
+    isLoading,
   } = useData;
 
   return {
@@ -18,6 +19,7 @@ const useBurgerApi = () => {
     isAuthenticated,
     setIsAuthenticated,
     handleLogout,
+    isLoading,
   };
 };
 

@@ -10,6 +10,7 @@ export const DataContext = React.createContext(
 const useData = (url: string) => {
   const apiData = useFetch<BurgerInterface[]>(url);
   const [userData, setUserData] = useState({} as Logeduser);
+  const [isLoading, setIsLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleLogout = () => {
@@ -26,7 +27,13 @@ const useData = (url: string) => {
     } else {
       setIsAuthenticated(false);
     }
-  }, []);
+
+    if (!apiData || !Object.keys(apiData).length) {
+      setIsLoading(true);
+    } else {
+      setIsLoading(false);
+    }
+  }, [apiData]);
 
   return {
     apiData,
@@ -35,6 +42,7 @@ const useData = (url: string) => {
     isAuthenticated,
     setIsAuthenticated,
     handleLogout,
+    isLoading,
   };
 };
 
