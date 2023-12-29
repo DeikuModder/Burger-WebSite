@@ -19,7 +19,9 @@ https://github.com/DeikuModder/burger-app-API
 ## For the future
 
 - Implement better grid designs, and add responsive designs
-- Add register for new users, as well as a dashbooard for regular users 
+- Add register for new users, as well as a dashbooard for regular users
+- Add details sections for each product in menu
+- Add searching with url paramaters 
 
 ## Techologies
 
