@@ -1,7 +1,6 @@
 import useBurgerApi from "@/hooks/useBurgerApi";
 import { Logeduser } from "@/src/types";
 import { FormEventHandler, useEffect, useState } from "react";
-import "@/styles/components/_login.scss";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -49,28 +48,48 @@ const Login = () => {
 
   return (
     <>
-      <section id="login">
-        <h2>Are you part of the staff? Login!</h2>
+      <section
+        style={{ minHeight: "calc(100dvh - 90px)" }}
+        className="flex flex-col justify-center items-center gap-4"
+      >
+        <h2 className="text-2xl font-bold w-[300px] text-center sm:text-4xl sm:w-[400px]">
+          Are you part of the staff? Login!
+        </h2>
 
-        <form onSubmit={handleSubmit} name="Login" id="loginForm">
-          <div>
-            <input
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Username here..."
-              name="usernameInput"
-            />
+        <form
+          onSubmit={handleSubmit}
+          name="Login"
+          className="p-3 border border-neutral-200 rounded-xl min-w-[270px] aspect-square flex flex-col justify-center items-center gap-3 sm:w-[300px] sm:font-bold sm:text-xl"
+        >
+          <div className="flex flex-col gap-8">
+            <label className="flex flex-col gap-2">
+              Username:
+              <input
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                name="usernameInput"
+                className="rounded-xl p-1"
+              />
+            </label>
 
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password..."
-              name="passwordInput"
-            />
+            <label className="flex flex-col gap2">
+              Password
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                name="passwordInput"
+                className="rounded-xl p-1"
+              />
+            </label>
           </div>
 
-          <input type="submit" value="Login" name="login" />
+          <input
+            type="submit"
+            value="Login"
+            name="login"
+            className="text-xl font-bold bg-neutral-200 text-red-700 border-2 border-red-700 p-2 rounded-xl cursor-pointer"
+          />
         </form>
 
         {errorMessage && (

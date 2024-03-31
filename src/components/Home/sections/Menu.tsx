@@ -1,58 +1,42 @@
 import useBurgerApi from "@/hooks/useBurgerApi";
-import BurgerImage from "@/assets/grill-ride-burger.webp";
-import DoubleGrillImage from "@/assets/double-grill.webp";
-import ChickenBurgerImage from "@/assets/chicken-burger.webp";
-import { Link } from "react-router-dom";
+import Cheese from "../../../assets/linea-grafica-grill-burguer_03.webp";
+import Chicken from "../../../assets/linea-grafica-grill-burguer_01.webp";
+import Double from "../../../assets/linea-grafica-grill-burguer_04.webp";
+import Item from "@/components/Menu/Item";
+import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { BurgerInterface } from "../../../types";
-import BurgerCard from "@/components/Menu/BurgerCard";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   const { apiData } = useBurgerApi();
 
-  const firstThreeBurgers: BurgerInterface[] = [
-    apiData[0],
-    apiData[1],
-    apiData[2],
-  ];
-  const burgerImages: string[] = [
-    BurgerImage,
-    DoubleGrillImage,
-    ChickenBurgerImage,
-  ];
+  const menuImages = [Cheese, Chicken, Double];
 
   return (
-    <section id="menuSneakPeek">
-      <Link
-        to={"/menu"}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 8,
-          fontSize: "2.5rem",
-          backgroundColor: "#1b1b1bc9",
-          marginBottom: 32,
-          padding: 8,
-        }}
-      >
-        <h3>Menu 📑 </h3>
-        <FontAwesomeIcon icon={faArrowRight} />
-      </Link>
-      <ul>
-        {firstThreeBurgers[0] &&
-          firstThreeBurgers.map((burger, index) => {
+    <section className="flex flex-col justify-center items-center gap-8 p-2">
+      <h2 className="text-2xl font-bold sm:text-5xl">Our classic products!</h2>
+
+      <div className="sm:flex sm:flex-wrap sm:gap-12">
+        {Object.keys(apiData).length > 0 &&
+          menuImages.map((burgerImg, index) => {
             return (
-              <BurgerCard
-                key={burger.name}
-                image={burgerImages[index]}
-                name={burger.name.replace("_", " ")}
-                price={burger.price}
-                ingredients={burger.ingredients}
+              <Item
+                image={burgerImg}
+                title={apiData[index].name}
+                price={apiData[index].price}
+                ingredients={apiData[index].ingredients}
+                key={`menu-${index}`}
               />
             );
           })}
-      </ul>
+      </div>
+
+      <Link
+        to={"/menu"}
+        className="p-2 bg-red-700 text-neutral-200 border text-2xl font-bold border-neutral-200 rounded-xl sm:text-4xl"
+      >
+        <FontAwesomeIcon icon={faArrowAltCircleRight} /> Check the menu!
+      </Link>
     </section>
   );
 };

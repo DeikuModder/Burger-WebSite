@@ -1,13 +1,12 @@
-import "@/styles/components/_home.scss";
-import Welcome from "./sections/Welcome";
-import Promos from "./sections/Promos";
 import Menu from "./sections/Menu";
+import Promotions from "./sections/Promotions";
+import Welcome from "./sections/Welcome";
 
 const Home = () => {
   return (
     <>
       <Welcome />
-      <Promos />
+      <Promotions />
       <Menu />
     </>
   );

@@ -1,15 +1,15 @@
-import { Route, Routes } from "react-router-dom";
-import Home from "@/components/Home/Home";
-import Menu from "@/components/Menu/Menu";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
-import About from "@/components/About/About";
-import Contact from "@/components/Contact/Contact";
-import Login from "@/components/Login/Login";
-import Dashboard from "@/components/Dashboard/Dashboard";
-import NotFound from "@/components/NotFound/NotFound";
 import useBurgerApi from "@/hooks/useBurgerApi";
 import Loader from "./Loader/Loader";
+import Header from "./Header/Header";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Home/Home";
+import Menu from "./Menu/Menu";
+import About from "./About/About";
+import Contact from "./Contact/Contact";
+import Footer from "./Footer/Footer";
+import Login from "./Login/Login";
+import Dashboard from "./Dashboard/Dashboard";
+import NotFound from "./NotFound/NotFound";
 
 const AppContent = () => {
   const { isLoading } = useBurgerApi();
@@ -20,7 +20,10 @@ const AppContent = () => {
         <Loader />
       ) : (
         <>
-          <Header />
+          <Header
+            backgroundColor="bg-neutral-900"
+            textColor="text-neutral-100"
+          />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/menu" element={<Menu />} />

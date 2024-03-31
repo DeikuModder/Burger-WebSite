@@ -1,6 +1,9 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ModalWindow from "./ModalWindow";
+import { faPen } from "@fortawesome/free-solid-svg-icons/faPen";
 import useBurgerApi from "@/hooks/useBurgerApi";
 import { BurgerInterface } from "@/src/types";
-import { FormEventHandler, useState } from "react";
+import { useState, FormEventHandler } from "react";
 
 const EditBurger = () => {
   const [id, setId] = useState("");
@@ -49,44 +52,60 @@ const EditBurger = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <fieldset>
-          <legend>Edit Entire Burger:</legend>
-          <input
-            value={newName}
-            onChange={(e) => setNewName(e.target.value)}
-            placeholder="New Burger Name..."
-            name="New Burger Name"
-          />
+    <ModalWindow
+      openButtonContent={
+        <div className="w-[160px] border border-neutral-700 text-neutral-700 p-2 rounded-xl text-lg font-bold">
+          <FontAwesomeIcon icon={faPen} /> Edit Burger
+        </div>
+      }
+    >
+      <>
+        <form
+          onSubmit={handleSubmit}
+          className="h-full flex flex-col justify-center items-center"
+        >
+          <fieldset className="flex flex-col items-center justify-center gap-8">
+            <legend className="text-xl font-bold">Edit Entire Burger:</legend>
+            <input
+              value={newName}
+              onChange={(e) => setNewName(e.target.value)}
+              placeholder="New Burger Name..."
+              name="New Burger Name"
+            />
 
-          <input
-            value={newPrice}
-            onChange={(e) => setNewPrice(e.target.value)}
-            placeholder="New Burger Price...."
-            name="New Burger Price"
-          />
+            <input
+              value={newPrice}
+              onChange={(e) => setNewPrice(e.target.value)}
+              placeholder="New Burger Price...."
+              name="New Burger Price"
+            />
 
-          <input
-            value={newIngredients}
-            onChange={(e) => setNewIngredients(e.target.value)}
-            placeholder="New Ingredients..."
-            name="New Ingredients"
-          />
+            <input
+              value={newIngredients}
+              onChange={(e) => setNewIngredients(e.target.value)}
+              placeholder="New Ingredients..."
+              name="New Ingredients"
+            />
 
-          <input
-            value={id}
-            onChange={(e) => setId(e.target.value)}
-            placeholder="Id of burger to edit..."
-            name="Id of burger"
-            required
-          />
+            <input
+              value={id}
+              onChange={(e) => setId(e.target.value)}
+              placeholder="Id of burger to edit..."
+              name="Id of burger"
+              required
+            />
 
-          <input type="submit" value="Submit changes" name="Edit burger" />
-        </fieldset>
-      </form>
-      {message && <p>{message}</p>}
-    </>
+            <input
+              type="submit"
+              value="Submit changes"
+              name="Edit burger"
+              className="cursor-pointer p-2 text-red-700 border border-red-700 rounded-xl bg-neutral-100"
+            />
+          </fieldset>
+        </form>
+        {message && <p>{message}</p>}
+      </>
+    </ModalWindow>
   );
 };
 

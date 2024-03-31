@@ -1,11 +1,10 @@
 import logo from "@/assets/Logo-hamburguesa-oficia-variacionl.webp";
-import "@/styles/components/_loader.scss";
+import "./animation.css";
 
 const Loader = () => {
   return (
-    <section>
-      <img src={logo} loading="lazy" className="loadImage" />
-      Loading...
+    <section className="flex justify-center items-center h-[100dvh] border border-black">
+      <img src={logo} loading="lazy" className="loadImage w-[300px]" />
     </section>
   );
 };

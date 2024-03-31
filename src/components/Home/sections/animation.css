@@ -1,0 +1,17 @@
+@keyframes expand {
+  0% {
+    scale: 0.95;
+  }
+
+  50% {
+    scale: 1;
+  }
+
+  100% {
+    scale: 0.95;
+  }
+}
+
+.welcomeImage {
+  animation: expand 1.7s ease-in-out infinite;
+}

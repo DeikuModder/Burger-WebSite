@@ -1,38 +1,27 @@
-import GrillRide from "@/assets/grill-ride-bag.webp";
-import "@/styles/components/_contact.scss";
-import { faMailBulk, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ContactPic from "../../assets/grill-ride-bag.webp";
+import { faPhoneAlt, faMailBulk } from "@fortawesome/free-solid-svg-icons";
 
 const Contact = () => {
   return (
-    <section id="contact">
-      <figure style={{ width: "40%", shapeOutside: "circle(50%)" }}>
+    <section
+      className="flex flex-col justify-center items-center p-2 sm:flex-row"
+      style={{ minHeight: "calc(100dvh - 90px)" }}
+    >
+      <figure className="w-[300px] aspect-square sm:w-[500px]">
         <img
-          src={GrillRide}
+          src={ContactPic}
+          alt="grill-ride-bag"
+          className="w-full"
           loading="lazy"
-          style={{ width: "100%", borderRadius: "100%" }}
         />
       </figure>
-      <div
-        style={{
-          width: "40%",
-          textAlign: "center",
-          backgroundColor: "#1b1b1bc9",
-          padding: 32,
-          color: "#eee",
-          borderRadius: 32,
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "2.5rem",
-            marginBottom: 32,
-          }}
-        >
-          Contact us, ask for your Grill Ride!
-        </h2>
 
-        <ul style={{ textAlign: "start", fontSize: "1.5rem" }}>
+      <div className="flex flex-col justify-center items-center gap-4">
+        <h2 className="text-2xl font-bold text-center sm:text-5xl max-w-[530px]">
+          Contact us! Ask for your Grill Ride 🚙🛒
+        </h2>
+        <ul className="text-xl bg-neutral-200 p-2 rounded-xl sm:text-3xl">
           <li>
             <FontAwesomeIcon icon={faPhoneAlt} /> 555-555-55555
           </li>
